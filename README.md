@@ -21,14 +21,14 @@ Sitio estático (HTML, CSS y JS en un solo archivo) que se publica en GitHub Pag
    ```
 
    Con la CLI de GitHub puedes hacer los dos pasos juntos: `gh repo create portfolio --public --source=. --push`
-3. En GitHub, entra a **Settings, Pages** y en **Source** elige **GitHub Actions**. Es un paso único.
+3. Crea un token con permiso **Pages: write** para este repositorio y guárdalo como el secreto `PAGES_TOKEN` en **Settings, Secrets and variables, Actions**. El workflow lo usa para habilitar Pages automáticamente si todavía no está activado.
 4. Espera a que termine el workflow (pestaña **Actions**, 1 o 2 minutos). Tu sitio queda en:
 
    `https://TU-USUARIO.github.io/portfolio/`
 
    Si llamas al repo `TU-USUARIO.github.io`, la URL queda en la raíz: `https://TU-USUARIO.github.io/`.
 
-Si el primer workflow falla por no tener Pages activado, haz el paso 3 y vuelve a correrlo desde **Actions, Deploy to GitHub Pages, Run workflow**.
+El workflow habilita Pages automáticamente. Si no puede hacerlo, verifica que `PAGES_TOKEN` tenga permiso de escritura en Pages y vuelve a correrlo desde **Actions, Deploy to GitHub Pages, Run workflow**.
 
 Para actualizar el sitio, edita los archivos de `public/`, haz commit y push a `main`. Se publica solo.
 
