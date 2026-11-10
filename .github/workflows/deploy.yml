@@ -27,6 +27,9 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          token: ${{ secrets.PAGES_TOKEN }}
+          enablement: true
 
       # Replaces the placeholder URL in the Open Graph tags with the real
       # GitHub Pages URL, so link previews work without editing the file.
