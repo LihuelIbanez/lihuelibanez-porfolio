@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lihuel Ibañez — Senior Flutter Engineer</title>
+<meta name="description" content="Senior Flutter & Mobile Engineer. 7+ years shipping banking and logistics apps used by millions.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#070B14">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lihuel Ibañez — Senior Flutter Engineer">
+<meta property="og:description" content="Senior Flutter & Mobile Engineer. 7+ years shipping banking and logistics apps used by millions.">
+<meta property="og:url" content="https://YOUR-PROJECT.web.app/">
+<meta property="og:image" content="https://YOUR-PROJECT.web.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070B14;--surface:#0F1626;--ink:#F4F7FB;--mute:#9BA8C0;--line:#1D2942;--acc:#00AEFF;--acc2:#8BDCFF;--on-acc:#041019;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 520px at 70% -10%,rgba(0,174,255,.2),transparent 60%) no-repeat var(--bg);color:var(--ink);font:400 17px/1.6 Barlow,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Barlow Semi Condensed",Barlow,"Arial Narrow",system-ui,sans-serif;line-height:1.05;margin:0;letter-spacing:.01em}
+h1,h2{text-transform:uppercase}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:28px}
+p{margin:0}
+.mute{color:var(--mute)}
+
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:20px;padding-bottom:8px;gap:12px}
+.id{display:flex;align-items:center;gap:12px;font-weight:600}
+.av{width:44px;height:44px;border-radius:14px 14px 14px 4px;display:grid;place-items:center;font:800 18px "Barlow Semi Condensed",sans-serif;color:var(--on-acc);background:conic-gradient(from 210deg,var(--acc),var(--acc2),var(--acc))}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.lang button{border:0;background:none;color:var(--mute);font:600 14px inherit;font-family:inherit;padding:6px 14px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+.hero{padding-top:48px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6.4vw,72px);font-weight:800}
+.hero .lead{font-size:20px;color:var(--mute);margin:22px 0 30px;max-width:30em}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);background:transparent;cursor:pointer;font-size:16px;font-family:inherit;color:var(--ink)}
+.btn.p{background:var(--acc);border-color:var(--acc);color:var(--on-acc)}
+.btn:hover{transform:translateY(-1px)}
+
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px}
+.demo .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{border:1px solid var(--line);background:none;color:var(--mute);padding:6px 12px;border-radius:8px;font:500 14px inherit;font-family:inherit;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--on-acc)}
+.stage{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;justify-content:center}
+.phone{width:196px;height:392px;border:6px solid #2B3A5E;border-radius:32px;background:var(--bg);padding:12px 9px;display:flex;flex-direction:column;gap:9px;overflow:hidden;flex:none}
+.swap{animation:sw .35s ease}
+@keyframes sw{from{opacity:.2;transform:scale(.97)}to{opacity:1;transform:none}}
+.st{display:flex;gap:7px}.st i{width:34px;height:34px;border-radius:50%;padding:2px;background:conic-gradient(var(--acc),var(--acc2),var(--acc))}.st i::after{content:"";display:block;width:100%;height:100%;border-radius:50%;background:var(--surface);border:2px solid var(--bg)}
+.bal{background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 12px;font-size:11px}.bal b{display:block;font:700 20px "Barlow Semi Condensed",sans-serif}
+.pro{background:linear-gradient(120deg,var(--acc),var(--acc2));color:var(--on-acc);border-radius:12px;padding:14px 12px;font:700 15px/1.15 "Barlow Semi Condensed",sans-serif;min-height:70px}
+.ch{display:flex;align-items:flex-end;gap:6px;height:84px;background:var(--surface);border-radius:12px;padding:10px}.ch i{flex:1;background:var(--acc);border-radius:4px 4px 0 0}
+.gr{display:grid;grid-template-columns:1fr 1fr;gap:7px;flex:1}.gr i{background:var(--surface);border:1px solid var(--line);border-radius:10px;min-height:56px}
+.gr i:nth-child(2n){background:color-mix(in srgb,var(--acc2) 35%,var(--surface))}
+pre{margin:0;font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;flex:1;min-width:150px;overflow-x:auto}
+.cap{font-size:14px;color:var(--mute);margin-top:12px}
+
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.metrics div{padding:28px 20px 28px 0}
+.metrics b{display:block;font:800 clamp(34px,5vw,54px)/1 "Barlow Semi Condensed",sans-serif;color:var(--acc);margin-bottom:8px}
+.metrics span{color:var(--mute);font-size:15px;display:block;max-width:15em}
+
+.proj{display:grid;grid-template-columns:.8fr 1.2fr;gap:12px 40px;padding:28px 0;border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj h3{font-size:26px;font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags span{font-size:13.5px;border:1px solid var(--line);border-radius:6px;padding:2px 9px;color:var(--mute);background:var(--surface)}
+
+.job{display:grid;grid-template-columns:.8fr 1.2fr;gap:8px 40px;padding:22px 0;border-top:1px solid var(--line)}
+.job h3{font-size:21px;font-weight:700}.job small{display:block;color:var(--mute);font-size:15px}
+.lk{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px}
+.lk a{color:var(--acc);font-weight:600;font-size:15px;text-underline-offset:3px}
+.lk a:hover{color:var(--acc2)}
+section[hidden]{display:none}
+h2::after{content:"";display:block;width:56px;height:3px;border-radius:2px;background:var(--acc);margin-top:12px;box-shadow:0 0 14px var(--acc)}
+.btn.p{box-shadow:0 0 26px rgba(0,174,255,.35)}
+.btn:hover{box-shadow:0 0 20px rgba(0,174,255,.45)}
+.demo,.contact{border-color:rgba(0,174,255,.28);box-shadow:0 0 0 1px rgba(0,174,255,.08),0 24px 70px rgba(0,174,255,.1),inset 0 1px 0 rgba(139,220,255,.12)}
+.metrics b{text-shadow:0 0 28px rgba(0,174,255,.5)}
+.proj:hover h3{color:var(--acc2)}
+.edu p+p{margin-top:8px}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px}
+.shots figure{margin:0;flex:none;width:210px;scroll-snap-align:start;display:none}
+.shots figure.on{display:block}
+.shots img{width:100%;aspect-ratio:9/19;object-fit:cover;object-position:top;border:6px solid #2B3A5E;border-radius:28px;background:var(--surface);display:block}
+.shots figcaption{font-size:14px;color:var(--mute);margin-top:10px}
+.sk{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 40px;margin-top:44px}
+.sk h3{font-size:18px;margin-bottom:10px}
+.sk .tags{margin:0}
+
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:clamp(24px,5vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact h2{margin-bottom:14px}
+form{display:grid;gap:12px}
+label{font-size:14px;font-weight:600;display:grid;gap:6px}
+input,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;width:100%}
+textarea{min-height:110px;resize:vertical}
+.side{display:grid;gap:10px;margin-top:22px;justify-items:start}
+footer{padding:28px 0 40px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:860px){
+.hero,.contact,.proj,.job{grid-template-columns:1fr}
+.hero{gap:32px}.metrics{grid-template-columns:1fr 1fr}.sk{grid-template-columns:1fr}
+section{padding:52px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="id"><div class="av" aria-hidden="true">LI</div><span>Lihuel Ibañez</span></div>
+<div class="lang" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="es" aria-pressed="false">ES</button></div>
+</div></header>
+
+<main>
+<div class="wrap hero">
+<div>
+<h1 data-es="Apps móviles que usan millones de personas.">Mobile apps used by millions of people.</h1>
+<p class="lead" data-es="Soy ingeniero senior de Flutter con más de 7 años en banca y logística. Diseño módulos de punta a punta, desde la arquitectura hasta el release. Trabajo en remoto desde Argentina.">I’m a senior Flutter engineer with 7+ years in banking and logistics. I own modules end to end, from architecture to release. Working remotely from Argentina.</p>
+<div class="btns">
+<a class="btn p" href="#contact" data-es="Hablemos">Let’s talk</a>
+<a class="btn" id="cvLink" href="#experience" data-es="Ver experiencia">See experience</a>
+<a class="btn" href="Lihuel_Ibanez_CV.pdf" download="Lihuel_Ibanez_CV.pdf" data-es="Descargar CV (PDF)">Download CV (PDF)</a>
+</div>
+</div>
+<div class="demo">
+<div class="tabs" role="group" aria-label="Layout">
+<button data-v="home" aria-pressed="true" data-es="Inicio">Home</button>
+<button data-v="spend" aria-pressed="false" data-es="Gastos">Spending</button>
+<button data-v="shop" aria-pressed="false">Marketplace</button>
+</div>
+<div class="stage"><div class="phone" id="phone" aria-hidden="true"></div><pre id="json" aria-label="JSON"></pre></div>
+<p class="cap" data-es="Así funciona la plataforma de Backend-Driven UI que construí: el backend envía el JSON y la pantalla cambia sin un nuevo release. Probalo.">This is how the Backend-Driven UI platform I built works: the backend sends JSON and the screen changes with no new release. Try it.</p>
+</div>
+</div>
+
+<section style="padding-top:24px"><div class="wrap"><div class="metrics">
+<div><b>5M+</b><span data-es="usuarios en una app bancaria en 3 países" >users on a banking app across 3 countries</span></div>
+<div><b>~90%</b><span data-es="cobertura de tests con Unit, Widget e Integration">test coverage across unit, widget and integration tests</span></div>
+<div><b>5</b><span data-es="países con una app de logística que lancé desde cero">countries running a logistics app I built from scratch</span></div>
+<div><b>7+</b><span data-es="años entregando Flutter en producción">years shipping Flutter to production</span></div>
+</div></div></section>
+
+<section id="work"><div class="wrap">
+<h2 data-es="Proyectos destacados">Selected work</h2>
+<div class="proj"><div><h3 data-es="Stories y Reels">Stories and Reels</h3><div class="tags"><span>Flutter</span><span>Riverpod</span><span>Preloading</span></div></div>
+<p class="mute" data-es="Experiencias de contenido promocional dinámico con autoplay, previews, controles interactivos y navegación vertical y horizontal. Con estrategias propias de precarga para reducir los tiempos de espera.">Dynamic promotional content with autoplay, previews, interactive controls and vertical and horizontal navigation. Custom preloading strategies cut loading delays.</p></div>
+<div class="proj"><div><h3 data-es="Plataforma de Backend-Driven UI">Backend-Driven UI platform</h3><div class="tags"><span>JSON</span><span>BFF</span><span>Node.js</span><span>TypeScript</span></div></div>
+<p class="mute" data-es="El backend define estructuras de pantalla, componentes, contenido y animaciones. Los equipos publican cambios sin esperar un nuevo release móvil.">The backend defines screen structure, components, content and animations. Teams ship changes without waiting for a new mobile release.</p></div>
+<div class="proj"><div><h3 data-es="Design System interno">Internal Design System</h3><div class="tags"><span>Widgetbook</span><span>Packages</span><span>Versioning</span></div></div>
+<p class="mute" data-es="Librería de componentes reutilizables usada por varios equipos, con versionado, documentación y mantenimiento. Integrada con Widgetbook.">A reusable component library used across teams, with versioning, documentation and maintenance. Integrated with Widgetbook.</p></div>
+</div></section>
+
+<section id="screens" hidden style="padding-top:0"><div class="wrap">
+<h2 data-es="Pantallas">Screens</h2>
+<p class="mute" style="margin:-8px 0 24px" data-es="Algunas de las pantallas que construí en producción.">A few of the production screens I built.</p>
+<div class="shots">
+<figure><img src="assets/ueno-home.png" alt="UenoBank home screen"><figcaption data-es="Ueno: Inicio">Ueno: Home</figcaption></figure>
+<figure><img src="assets/ueno-expenses.png" alt="UenoBank expense analysis screen"><figcaption data-es="Ueno: Análisis de gastos">Ueno: Expense analysis</figcaption></figure>
+<figure><img src="assets/ueno-marketplace.png" alt="UenoBank marketplace screen"><figcaption>Ueno: Marketplace</figcaption></figure>
+<figure><img src="assets/pickers-tracking.png" alt="Pickers delivery tracking screen"><figcaption data-es="Pickers: Seguimiento">Pickers: Tracking</figcaption></figure>
+<figure><img src="assets/pickers-proof.png" alt="Pickers proof of delivery screen"><figcaption data-es="Pickers: Prueba de entrega">Pickers: Proof of delivery</figcaption></figure>
+</div>
+</div></section>
+
+<section id="experience" style="padding-top:0"><div class="wrap">
+<h2 data-es="Experiencia">Experience</h2>
+<div class="job"><div><h3>ITTI — UenoBank</h3><small data-es="Mobile Software Engineer · mayo 2024 al presente">Mobile Software Engineer · May 2024 to present</small><div class="lk" role="group" aria-label="Ueno Bank"><a href="https://www.ueno.com.py/" target="_blank" rel="noopener" data-es="Sitio web">Website</a><a href="https://play.google.com/store/apps/details?id=py.com.elcomercio.retailbanking&hl=es_AR" target="_blank" rel="noopener">Google Play</a></div></div>
+<p class="mute" data-es="Módulos de Home, Perfil, Análisis de Gastos, Marketplace y autenticación en una app con 12 módulos. Clean Architecture con Riverpod, servicios BFF, pipelines en GitHub Actions y release trains quincenales sobre 8 repositorios y 3 librerías compartidas.">Home, Profile, Expense Analysis, Marketplace and authentication modules in a 12-module app. Clean Architecture with Riverpod, BFF services, GitHub Actions pipelines and biweekly release trains across 8 repositories and 3 shared libraries.</p></div>
+<div class="job"><div><h3>Pickit — Pickers</h3><small data-es="Mobile Software Engineer · abril 2022 a mayo 2024">Mobile Software Engineer · Apr 2022 to May 2024</small><div class="lk" role="group" aria-label="Pickers"><a href="https://home.pickers.tech/" target="_blank" rel="noopener" data-es="Sitio web">Website</a><a href="https://play.google.com/store/search?q=pickers&c=apps&hl=es_AR" target="_blank" rel="noopener">Google Play</a></div></div>
+<p class="mute" data-es="Tracking, Mapas, Gestión de Paquetes y Prueba de Entrega desde cero, con más de 100K descargas y 50K+ conductores. Integración con Google Maps y Waze, y regionalización para México, Chile, Brasil, Argentina y Colombia.">Tracking, Maps, Package Management and Proof of Delivery from scratch, with 100K+ downloads and 50K+ drivers. Google Maps and Waze integration, and regionalization for Mexico, Chile, Brazil, Argentina and Colombia.</p></div>
+<div class="job"><div><h3 data-es="Gobierno de la Provincia del Neuquén">Government of the Province of Neuquén</h3><small data-es="Software Developer · abril 2019 a marzo 2022">Software Developer · Apr 2019 to Mar 2022</small></div>
+<p class="mute" data-es="Primeras apps en Flutter desde la era 1.0, con Firebase, Firestore y Cloud Functions. Apps internas para tablet y web, y colaboración en ANDES Neuquén con React Native.">First Flutter apps since the 1.0 era, using Firebase, Firestore and Cloud Functions. Internal tablet and web apps, plus React Native work on ANDES Neuquén.</p></div>
+<div class="sk">
+<div><h3>Flutter & Mobile</h3><div class="tags"><span>Flutter</span><span>Dart</span><span>Android</span><span>iOS</span><span>Kotlin</span></div></div>
+<div><h3 data-es="Arquitectura y estado">Architecture & state</h3><div class="tags"><span>Clean Architecture</span><span>MVVM</span><span>Riverpod</span><span>BLoC/Cubit</span><span>Provider</span><span>GetX</span></div></div>
+<div><h3>Backend & APIs</h3><div class="tags"><span>Node.js</span><span>TypeScript</span><span>REST</span><span>GraphQL</span><span>Firebase</span></div></div>
+<div><h3 data-es="Calidad y release">Quality & release</h3><div class="tags"><span>Mockito</span><span>SonarQube</span><span>GitHub Actions</span><span>Sentry</span><span>Crashlytics</span></div></div>
+</div>
+</div></section>
+
+<section id="education" style="padding-top:0"><div class="wrap">
+<h2 data-es="Formación">Education</h2>
+<div class="sk" style="margin-top:0">
+<div class="edu"><h3 data-es="Estudios">Degrees</h3>
+<p class="mute" data-es="Licenciatura en Sistemas de Información, Universidad Nacional del Comahue (2018 a 2022)">Bachelor of Computer Information Systems, National University of Comahue (2018 to 2022)</p>
+<p class="mute" data-es="Ingeniería Industrial, cursado parcial, Universidad de Mendoza (2013 a 2017)">Industrial Engineering coursework, University of Mendoza (2013 to 2017)</p></div>
+<div><h3 data-es="Cursos e idiomas">Training & languages</h3><div class="tags"><span>Flutter Advanced</span><span>Flutter: Design and Animations</span><span>Dart</span><span>Android</span><span>iOS</span><span data-es="Inglés C1 (EF SET)">English C1 (EF SET)</span></div></div>
+</div>
+</div></section>
+
+<section id="contact" style="padding-top:0"><div class="wrap"><div class="contact">
+<div>
+<h2 data-es="¿Armamos algo juntos?">Want to build something together?</h2>
+<p class="mute" data-es="Estoy abierto a roles remotos internacionales y proyectos freelance. Escribime o agendá una llamada.">I’m open to international remote roles and freelance projects. Write to me or book a call.</p>
+<div class="side" id="side"></div>
+</div>
+<form id="f">
+<label><span data-es="Nombre">Name</span><input name="n" required autocomplete="name"></label>
+<label><span>Email</span><input name="e" type="email" required autocomplete="email"></label>
+<label><span data-es="Mensaje">Message</span><textarea name="m" required></textarea></label>
+<button class="btn p" type="submit" data-es="Enviar mensaje">Send message</button>
+<p class="cap" id="fs" role="status" style="margin:0"></p>
+<p class="cap" id="mailnote" style="margin:0" data-es="Se abre tu app de correo con el mensaje listo para enviar.">This opens your email app with the message ready to send.</p>
+</form>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+<span>© 2026 Lihuel Ibañez</span>
+<span data-es="Trabajo en remoto desde Argentina">Working remotely from Argentina</span>
+</div></footer>
+
+<script>
+var CFG={email:"lihuel.ibanez@gmail.com",linkedin:"https://www.linkedin.com/in/lihueliba%C3%B1ez",whatsapp:"",calendly:"",formEndpoint:""};
+var lang="en",view="home";
+var T=function(a,b){return lang==="es"?b:a};
+var V={home:{screen:"home",blocks:["stories","balance","promo"]},spend:{screen:"expenses",blocks:["balance","chart","promo"]},shop:{screen:"marketplace",blocks:["promo","grid"]}};
+function block(k){
+ if(k==="stories")return '<div class="st"><i></i><i></i><i></i><i></i></div>';
+ if(k==="balance")return '<div class="bal">'+T("Balance","Saldo")+'<b>$ 2,480</b></div>';
+ if(k==="promo")return '<div class="pro">'+T("20% back on your first purchase","20% de vuelta en tu primera compra")+'</div>';
+ if(k==="chart")return '<div class="ch"><i style="height:40%"></i><i style="height:75%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:35%"></i></div>';
+ return '<div class="gr"><i></i><i></i><i></i><i></i></div>';
+}
+function draw(animate){
+ var p=document.getElementById("phone");
+ p.innerHTML=V[view].blocks.map(block).join("");
+ var o=Object.assign({},V[view],{version:2});
+ document.getElementById("json").textContent=JSON.stringify(o,null,2);
+ if(animate){p.classList.remove("swap");void p.offsetWidth;p.classList.add("swap")}
+ document.querySelectorAll("[data-v]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v===view)});
+}
+function sideLinks(){
+ var h='<a class="btn" href="mailto:'+CFG.email+'">Email</a><a class="btn" href="'+CFG.linkedin+'" target="_blank" rel="noopener">LinkedIn</a>';
+ h+='<a class="btn" href="Lihuel_Ibanez_CV.pdf" download="Lihuel_Ibanez_CV.pdf">'+T("Download CV","Descargar CV")+'</a>';
+ if(CFG.whatsapp)h+='<a class="btn" href="'+CFG.whatsapp+'" target="_blank" rel="noopener">WhatsApp</a>';
+ if(CFG.calendly)h+='<a class="btn" href="'+CFG.calendly+'" target="_blank" rel="noopener">'+T("Book a call","Agendar llamada")+'</a>';
+ document.getElementById("side").innerHTML=h;
+}
+function setLang(l){
+ lang=l;document.documentElement.lang=l;
+ document.querySelectorAll("[data-es]").forEach(function(e){
+  if(!e.dataset.en)e.dataset.en=e.innerHTML;
+  e.innerHTML=l==="es"?e.dataset.es:e.dataset.en;
+ });
+ document.querySelectorAll("[data-l]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+ document.title=l==="es"?"Lihuel Ibañez — Ingeniero Flutter Senior":"Lihuel Ibañez — Senior Flutter Engineer";
+ try{localStorage.setItem("lang",l)}catch(e){}
+ sideLinks();draw(false);
+}
+document.querySelectorAll("[data-l]").forEach(function(b){b.onclick=function(){setLang(b.dataset.l)}});
+document.querySelectorAll("[data-v]").forEach(function(b){b.onclick=function(){view=b.dataset.v;draw(true)}});
+document.getElementById("f").onsubmit=function(ev){
+ ev.preventDefault();var f=ev.target;
+ var s=encodeURIComponent(T("Portfolio contact from ","Contacto desde el portfolio: ")+f.n.value);
+ var b=encodeURIComponent(f.m.value+"\n\n"+f.n.value+" ("+f.e.value+")");
+ if(CFG.formEndpoint){
+  var fs=document.getElementById("fs");fs.textContent=T("Sending...","Enviando...");
+  fetch(CFG.formEndpoint,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({name:f.n.value,email:f.e.value,message:f.m.value})})
+  .then(function(r){if(!r.ok)throw 0;fs.textContent=T("Message sent. I’ll reply soon.","Mensaje enviado. Te respondo pronto.");f.reset()})
+  .catch(function(){fs.textContent=T("The message didn’t send. Email me at ","No se pudo enviar el mensaje. Escribime a ")+CFG.email});
+  return;
+ }
+ location.href="mailto:"+CFG.email+"?subject="+s+"&body="+b;
+};
+document.querySelectorAll("#screens img").forEach(function(im){
+ function ok(){im.parentNode.classList.add("on");document.getElementById("screens").hidden=false}
+ if(im.complete&&im.naturalWidth)ok();else im.addEventListener("load",ok);
+});
+if(CFG.formEndpoint)document.getElementById("mailnote").hidden=true;
+var saved="";try{saved=localStorage.getItem("lang")||""}catch(e){}
+setLang(saved||((navigator.language||"").slice(0,2)==="es"?"es":"en"));
+</script>
+</body>
+</html>
