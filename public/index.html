@@ -109,6 +109,10 @@ textarea{min-height:110px;resize:vertical}
 footer{padding:28px 0 40px;color:var(--mute);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
+.asteroids-container{position:relative;width:100%;height:400px;margin:48px 0;border:1px solid var(--line);border-radius:22px;background:var(--bg);overflow:hidden;box-shadow:0 0 0 1px rgba(0,174,255,.08),inset 0 0 60px rgba(0,174,255,.05)}
+#asteroidsGame{display:block;width:100%;height:100%;cursor:none}
+.asteroids-info{position:absolute;bottom:12px;left:12px;font-size:12px;color:var(--mute);opacity:.6;pointer-events:none}
+
 @media (max-width:860px){
 .hero,.contact,.proj,.job{grid-template-columns:1fr}
 .hero{gap:32px}.metrics{grid-template-columns:1fr 1fr}.sk{grid-template-columns:1fr}
@@ -142,6 +146,13 @@ section{padding:52px 0}
 </div>
 <div class="stage"><div class="phone" id="phone" aria-hidden="true"></div><pre id="json" aria-label="JSON"></pre></div>
 <p class="cap" data-es="Así funciona la plataforma de Backend-Driven UI que construí: el backend envía el JSON y la pantalla cambia sin un nuevo release. Probalo.">This is how the Backend-Driven UI platform I built works: the backend sends JSON and the screen changes with no new release. Try it.</p>
+</div>
+</div>
+
+<div class="asteroids-container">
+<canvas id="asteroidsGame" aria-hidden="true"></canvas>
+<div class="asteroids-info">
+<span data-es="Usa WASD o flechas para pilotar, ESPACIO para disparar">Use WASD or arrow keys to fly, SPACE to shoot</span>
 </div>
 </div>
 
@@ -282,6 +293,33 @@ document.querySelectorAll("#screens img").forEach(function(im){
 if(CFG.formEndpoint)document.getElementById("mailnote").hidden=true;
 var saved="";try{saved=localStorage.getItem("lang")||""}catch(e){}
 setLang(saved||((navigator.language||"").slice(0,2)==="es"?"es":"en"));
+
+// Asteroids Game
+(function(){
+var canvas=document.getElementById("asteroidsGame");if(!canvas)return;
+var ctx=canvas.getContext("2d");var w=canvas.width=canvas.offsetWidth,h=canvas.height=canvas.offsetHeight;
+var ship={x:w/2,y:h/2,angle:0,vel:{x:0,y:0},radius:15,score:0};
+var bullets=[],asteroids=[],particles=[];
+var keys={};
+function resizeCanvas(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight}
+window.addEventListener("resize",resizeCanvas);
+function initAsteroids(){asteroids=[];for(var i=0;i<3;i++)asteroids.push({x:Math.random()*w,y:Math.random()*h,vel:{x:(Math.random()-0.5)*3,y:(Math.random()-0.5)*3},radius:40,rotation:Math.random()*Math.PI*2,rotVel:(Math.random()-0.5)*0.1});}
+function drawShip(){ctx.save();ctx.translate(ship.x,ship.y);ctx.rotate(ship.angle);ctx.strokeStyle="#00AEFF";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(15,0);ctx.lineTo(-10,-10);ctx.lineTo(-5,0);ctx.lineTo(-10,10);ctx.closePath();ctx.stroke();if(ship.vel.x||ship.vel.y){ctx.strokeStyle="rgba(0,174,255,0.6)";ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(-5,5);ctx.lineTo(-10,-5);ctx.moveTo(-5,-5);ctx.lineTo(-10,5);ctx.stroke()}ctx.restore()}
+function drawAsteroid(ast){ctx.save();ctx.translate(ast.x,ast.y);ctx.rotate(ast.rotation);ctx.strokeStyle="rgba(0,174,255,0.8)";ctx.lineWidth=2;ctx.beginPath();var points=8;for(var i=0;i<points;i++){var angle=i/points*Math.PI*2;var r=ast.radius*(0.7+Math.random()*0.3);var x=Math.cos(angle)*r;var y=Math.sin(angle)*r;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y)}ctx.closePath();ctx.stroke();ctx.restore()}
+function drawBullet(b){ctx.fillStyle="#00AEFF";ctx.beginPath();ctx.arc(b.x,b.y,2,0,Math.PI*2);ctx.fill()}
+function drawParticle(p){ctx.fillStyle="rgba(0,174,255,"+p.life+")";ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill()}
+function updateShip(){if(keys["w"]||keys["ArrowUp"])ship.vel.x+=Math.cos(ship.angle)*0.5,ship.vel.y+=Math.sin(ship.angle)*0.5;if(keys["a"]||keys["ArrowLeft"])ship.angle-=0.1;if(keys["d"]||keys["ArrowRight"])ship.angle+=0.1;ship.vel.x*=0.99;ship.vel.y*=0.99;ship.x+=ship.vel.x;ship.y+=ship.vel.y;if(ship.x<0)ship.x=w;if(ship.x>w)ship.x=0;if(ship.y<0)ship.y=h;if(ship.y>h)ship.y=0}
+function updateBullets(){for(var i=bullets.length-1;i>=0;i--){bullets[i].x+=bullets[i].vel.x;bullets[i].y+=bullets[i].vel.y;if(bullets[i].x<0||bullets[i].x>w||bullets[i].y<0||bullets[i].y>h)bullets.splice(i,1)}}
+function updateAsteroids(){for(var i=0;i<asteroids.length;i++){asteroids[i].x+=asteroids[i].vel.x;asteroids[i].y+=asteroids[i].vel.y;asteroids[i].rotation+=asteroids[i].rotVel;if(asteroids[i].x<0)asteroids[i].x=w;if(asteroids[i].x>w)asteroids[i].x=0;if(asteroids[i].y<0)asteroids[i].y=h;if(asteroids[i].y>h)asteroids[i].y=0}}
+function checkCollisions(){for(var i=bullets.length-1;i>=0;i--){for(var j=asteroids.length-1;j>=0;j--){var dx=bullets[i].x-asteroids[j].x;var dy=bullets[i].y-asteroids[j].y;var dist=Math.sqrt(dx*dx+dy*dy);if(dist<asteroids[j].radius){for(var p=0;p<8;p++){particles.push({x:asteroids[j].x,y:asteroids[j].y,vel:{x:(Math.random()-0.5)*4,y:(Math.random()-0.5)*4},size:Math.random()*3+1,life:1})}if(asteroids[j].radius>20){asteroids.push({x:asteroids[j].x,y:asteroids[j].y,vel:{x:asteroids[j].vel.x+(Math.random()-0.5)*2,y:asteroids[j].vel.y+(Math.random()-0.5)*2},radius:asteroids[j].radius/1.5,rotation:asteroids[j].rotation,rotVel:(Math.random()-0.5)*0.1});asteroids.push({x:asteroids[j].x,y:asteroids[j].y,vel:{x:asteroids[j].vel.x+(Math.random()-0.5)*2,y:asteroids[j].vel.y+(Math.random()-0.5)*2},radius:asteroids[j].radius/1.5,rotation:asteroids[j].rotation,rotVel:(Math.random()-0.5)*0.1})}asteroids.splice(j,1);bullets.splice(i,1);ship.score+=10;break}}}if(asteroids.length===0){initAsteroids();ship.score+=100}}
+function updateParticles(){for(var i=particles.length-1;i>=0;i--){particles[i].x+=particles[i].vel.x;particles[i].y+=particles[i].vel.y;particles[i].life-=0.01;if(particles[i].life<=0)particles.splice(i,1)}}
+function draw(){ctx.fillStyle="rgba(7,11,20,0.1)";ctx.fillRect(0,0,w,h);drawShip();asteroids.forEach(drawAsteroid);bullets.forEach(drawBullet);particles.forEach(drawParticle);ctx.fillStyle="#00AEFF";ctx.font="12px monospace";ctx.fillText("Score: "+ship.score,12,20)}
+function update(){updateShip();updateBullets();updateAsteroids();updateParticles();checkCollisions()}
+function gameLoop(){update();draw();requestAnimationFrame(gameLoop)}
+document.addEventListener("keydown",function(e){keys[e.key.toLowerCase()]=true;if(e.key===" "){e.preventDefault();var bx=ship.x+Math.cos(ship.angle)*ship.radius;var by=ship.y+Math.sin(ship.angle)*ship.radius;bullets.push({x:bx,y:by,vel:{x:Math.cos(ship.angle)*6+ship.vel.x,y:Math.sin(ship.angle)*6+ship.vel.y}})}});
+document.addEventListener("keyup",function(e){keys[e.key.toLowerCase()]=false});
+initAsteroids();gameLoop();
+})();
 </script>
 </body>
 </html>
